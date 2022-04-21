@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create Book table
+      author: MIRALI ABBASOV
+      changes:
+        - createTable:
+            tableName: book
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(250)
+              - column:
+                  name: author
+                  type: varchar(250)
+              - column:
+                  name: publisher
+                  type: varchar(250)
+
+
+
+
+

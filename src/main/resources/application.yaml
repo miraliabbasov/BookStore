@@ -1,0 +1,16 @@
+spring:
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/books
+    username: postgres
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    show-sql: true
+
+  liquibase:
+    change-log: classpath:db.changelog/master.yaml
