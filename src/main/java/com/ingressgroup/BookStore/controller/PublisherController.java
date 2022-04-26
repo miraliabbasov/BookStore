@@ -23,12 +23,12 @@ public class PublisherController {
     private final PublisherService publisherService;
 
 
-    @GetMapping("/login")
+    @GetMapping("/signIn")
     public String  login(@RequestParam String email, @RequestParam String password){
         return publisherService.loginPublisher(email,password);
     }
 
-    @PostMapping("/register")
+    @PostMapping("/signUp")
     public void register(@RequestBody PublisherDto publisherDto){
         publisherService.registerUser(publisherDto);
     }
@@ -39,12 +39,12 @@ public class PublisherController {
     }
 
     @GetMapping("/books")
-    public Page<BookEntity> sortedBySize(@RequestParam int size, @RequestParam int page){
-        return bookService.sortedByPage(page,size);
+    public List<BookDto> sortedBySize( int page, int size, String field){
+        return bookService.sortedByPage(page,size,field);
     }
 
 
-    @GetMapping("/nameandauthor")
+    @GetMapping("/name-and-author")
     public List<BookCreate> getNameAndAuthorOfBook(){
         return bookService.getNameAndAuthorOfBook();
     }

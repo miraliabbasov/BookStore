@@ -21,36 +21,36 @@ public class UserController {
     private final UserService userService;
 
 
-    @GetMapping("/login")
+    @GetMapping("/signIn")
     public String  login(@RequestParam String email, @RequestParam String password){
        return userService.loginUser(email,password);
     }
 
-    @PostMapping("/register")
+    @PostMapping("/signUp")
     public void register(@RequestBody UserDto userDto){
         userService.registerUser(userDto);
     }
 
 
 
-    @GetMapping("/books_name")
+    @GetMapping("/books-name")
     public List<String> getNameOfBooks(){
         return bookService.getBook();
     }
 
 
-    @GetMapping("/book_publisher")
+    @GetMapping("/book-publisher")
     public List<BookCreate> getBookWithPublisher(@RequestParam String publisher){
        return bookService.getBookWithPublisher(publisher);
     }
 
     @GetMapping("/books")
-    public Page<BookEntity> sortedBySize(@RequestParam int size, @RequestParam int page){
-        return bookService.sortedByPage(page,size);
+    public List<BookDto> sortedBySize( int page, int size, String field){
+        return bookService.sortedByPage(page,size,field);
     }
 
 
-    @GetMapping("/name_and_author")
+    @GetMapping("/name-and-author")
     public List<BookCreate> getNameAndAuthorOfBook(){
         return bookService.getNameAndAuthorOfBook();
     }

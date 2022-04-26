@@ -22,7 +22,9 @@ public abstract class BookMap {
 
     public abstract List<BookDto> entityToDtos(List<BookEntity> entities);
 
+
     public abstract BookEntity bookRequestToEntity(BookCreate bookCreate);
+
 
     public abstract List<BookCreate> entityToBookCreates(List<BookEntity> entities);
 }
